@@ -59,13 +59,9 @@ for i = 1:m
 	theta = trainLinearReg(Xa, ya, lambda);
 	[cost, grad] = linearRegCostFunction(Xa, ya, theta, 0);
 	error_train(i) = cost;
-	Ht = X*theta;
-	cost = (1/(2*m))*sum((Ht-y).^2);
-	%[cost, grad] = linearRegCostFunction(X, y, theta, 0);
+	[cost, grad] = linearRegCostFunction(Xval, yval, theta, 0);
 	error_val(i) = cost;
 end	
-
-
 
 % -------------------------------------------------------------
 
